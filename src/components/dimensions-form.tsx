@@ -5,7 +5,7 @@ export const DimensionsForm = () => {
   const [inputError, setInputError] = useState(false)
   const [errorTimeout, setErrorTimeout] = useState<number>()
 
-  const { setDimensions } = useSpareMatrixStore()
+  const { initMatrix } = useSpareMatrixStore()
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
@@ -25,7 +25,7 @@ export const DimensionsForm = () => {
       columnsNumber > 0
     ) {
       document.body.classList.add('epoch-cursor')
-      setDimensions(rowsNumber, columnsNumber)
+      initMatrix(rowsNumber, columnsNumber)
     } else {
       setInputError(true)
       if (errorTimeout) clearTimeout(errorTimeout)
