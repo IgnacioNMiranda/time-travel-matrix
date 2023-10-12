@@ -1,9 +1,9 @@
-import { BackgroundAudio } from './components/background-audio'
-import './styles.css'
+import { useMemo } from 'react'
+import { AudioManager } from './components/audio-manager'
 import { useSpareMatrixStore } from './state/spare-matrix'
 import { DimensionsForm } from './components/dimensions-form'
-import { useMemo } from 'react'
 import { SparseMatrixGame } from './components/sparse-matrix-game'
+import './styles.css'
 
 function App() {
   const { rows, columns } = useSpareMatrixStore()
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <main
-      className="h-screen grid place-items-center"
+      className="h-screen grid place-items-center px-4"
       style={{
         background: `url('/background-image.webp')`,
         backgroundPosition: 'center',
@@ -24,7 +24,7 @@ function App() {
 
       {isSetup && <SparseMatrixGame />}
 
-      <BackgroundAudio play={isSetup} />
+      <AudioManager play={isSetup} />
     </main>
   )
 }
