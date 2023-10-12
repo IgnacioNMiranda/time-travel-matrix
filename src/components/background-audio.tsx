@@ -5,6 +5,7 @@ export const BackgroundAudio = ({ play = false }: { play?: boolean }) => {
   useEffect(() => {
     if (play && !audio) {
       const audioInstance = new Audio('/background-music.mp3')
+      audioInstance.loop = true
       audioInstance.play()
       setAudio(audioInstance)
     }

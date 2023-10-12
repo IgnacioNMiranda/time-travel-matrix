@@ -1,24 +1,30 @@
-import { useState } from 'react'
 import { BackgroundAudio } from './components/background-audio'
-import './styles/tailwind.css'
+import './styles.css'
+import { useSpareMatrixStore } from './state/spare-matrix'
+import { DimensionsForm } from './components/dimensions-form'
+import { useMemo } from 'react'
+import { SparseMatrixGame } from './components/sparse-matrix-game'
 
 function App() {
-  const [hasStart, setHasStart] = useState(false)
+  const { rows, columns } = useSpareMatrixStore()
+
+  const isSetup = useMemo(() => !!rows && !!columns, [rows, columns])
 
   return (
-    <main>
-      <div className="h-screen">
-        <div className="flex justify-center items-center flex-col gap-4">
-          <h1 className="text-red-700 text-xl">Time Travel Sparse Matrix</h1>
-          {!hasStart && (
-            <button className="rounded px-4 py-2 bg-green-300" onClick={() => setHasStart(true)}>
-              Start :D
-            </button>
-          )}
-        </div>
+    <main
+      className="h-screen grid place-items-center"
+      style={{
+        background: `url('/background-image.webp')`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+    >
+      {!isSetup && <DimensionsForm />}
 
-        <BackgroundAudio play={hasStart} />
-      </div>
+      {isSetup && <SparseMatrixGame />}
+
+      <BackgroundAudio play={isSetup} />
     </main>
   )
 }

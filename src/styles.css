@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+.epoch-cursor {
   cursor: url('/epoch.svg'), auto;
 }
