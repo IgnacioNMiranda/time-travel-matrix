@@ -7,3 +7,15 @@
     url('/epoch.svg') 55 35,
     auto;
 }
+
+@font-face {
+  font-family: 'ChronoType';
+  font-style: normal;
+  src:
+    local('ChronoType'),
+    url('/fonts/ChronoType.woff') format('woff');
+}
+
+.chrono-font {
+  font-family: ChronoType;
+}
