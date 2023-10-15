@@ -38,22 +38,22 @@ export const DimensionsForm = () => {
 
   return (
     <form
-      className="bg-[#F5BB86] w-auto md:w-108 px-4 md:pl-4 md:pr-0 pb-3 pt-1 md:py-3 rounded-md flex flex-col md:flex-row items-center md:items-start"
+      className="bg-[#F5BB86] w-auto md:w-108 px-4 md:pl-4 md:pr-0 pb-3 pt-1 md:py-3 rounded-md flex flex-col md:flex-row items-center justify-center"
       onSubmit={onSubmit}
     >
       <section className="flex flex-col gap-2 w-full md:w-auto">
         <div className="flex gap-2 justify-between items-center">
-          <p className="text-[#265D5C] font-semibold text-sm md:text-base">Input matrix dimensions:</p>
+          <p className="text-[#265D5C] font-semibold text-sm md:text-xl">Input matrix dimensions:</p>
 
           <div className="flex gap-2">
-            <input type="number" className="w-12 md:w-16 h-7" name="rows" required max={10} />
-            <input type="number" className="w-12 md:w-16 h-7" name="columns" required max={10} />
+            <input type="number" className="w-12 md:w-16 h-7 text-xl p-1" name="rows" required max={10} />
+            <input type="number" className="w-12 md:w-16 h-7 text-xl p-1" name="columns" required max={10} />
           </div>
         </div>
 
         {inputError && <span className="text-red-500 font-bold text-center">Please input valid dimensions!</span>}
 
-        <button className="w-full rounded px-4 py-2 bg-[#A6002B] hover:bg-[#450000] focus:bg-[#F27306] transition-colors text-white font-medium">
+        <button className="w-full rounded px-4 py-2 bg-[#A6002B] hover:bg-[#450000] focus:bg-[#F27306] transition-colors text-white font-medium text-sm md:text-xl">
           Travel through time!
         </button>
       </section>
