@@ -7,7 +7,7 @@ export const AudioManager = ({ play = false }: { play?: boolean }) => {
     if (play && !mainBackgroundAudio) {
       const audioInstance = new Audio('/background-audio.mp3')
       audioInstance.loop = true
-      audioInstance.play()
+      // audioInstance.play()
       setMainBackgroundAudio(audioInstance)
     }
   }, [play, mainBackgroundAudio])

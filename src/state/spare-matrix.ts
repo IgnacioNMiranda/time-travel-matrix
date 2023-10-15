@@ -1,26 +1,39 @@
 import { create } from 'zustand'
+import { matrix, Matrix } from 'mathjs'
 
 interface SpareMatrixState {
   rows?: number
   columns?: number
-  baseRow?: Node[]
-  baseColumn?: Node[]
+  sparseMatrix: Matrix
   initMatrix: (rows: number, columns: number) => void
-}
-
-interface Node {
-  row: number
-  column: number
-  leftNode?: Node
-  downNode?: Node
+  updateMatrix: (matrix: Matrix) => void
 }
 
 export const useSpareMatrixStore = create<SpareMatrixState>((set) => ({
+  sparseMatrix: matrix('sparse'),
   initMatrix: (rows: number, columns: number) =>
-    set(() => {
-      const baseRow = new Array(rows).fill(null).map((_, idx) => ({ row: idx, column: -1 }))
-      const baseColumn = new Array(rows).fill(null).map((_, idx) => ({ row: -1, column: idx }))
+    set((state) => {
+      const colValue = columns > 10 ? 10 : columns
+      const rowValue = rows > 10 ? 10 : rows
 
-      return { rows, columns, baseRow, baseColumn }
+      const sparseMatrix = state.sparseMatrix.resize([rowValue, colValue])
+
+      return { rows: rowValue, columns: colValue, sparseMatrix }
     }),
+  updateMatrix: (matrix: Matrix) => set(() => ({ sparseMatrix: matrix })),
 }))
+
+export const useSpareMatrixOperations = () => {
+  const { sparseMatrix, updateMatrix } = useSpareMatrixStore()
+
+  const getNode = (row: number, column: number) => {
+    return sparseMatrix?.get([row, column])
+  }
+
+  const addNode = (row: number, column: number) => {
+    sparseMatrix?.set([row, column], '1')
+    updateMatrix(sparseMatrix)
+  }
+
+  return { getNode, addNode }
+}

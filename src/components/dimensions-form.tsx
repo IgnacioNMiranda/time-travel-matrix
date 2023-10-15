@@ -46,8 +46,8 @@ export const DimensionsForm = () => {
           <p className="text-[#265D5C] font-semibold text-sm md:text-base">Input matrix dimensions:</p>
 
           <div className="flex gap-2">
-            <input type="number" className="w-12 md:w-16 h-7" name="rows" required />
-            <input type="number" className="w-12 md:w-16 h-7" name="columns" required />
+            <input type="number" className="w-12 md:w-16 h-7" name="rows" required max={10} />
+            <input type="number" className="w-12 md:w-16 h-7" name="columns" required max={10} />
           </div>
         </div>
 

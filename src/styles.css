@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 .epoch-cursor {
-  cursor: url('/epoch.svg'), auto;
+  cursor:
+    url('/epoch.svg') 55 35,
+    auto;
 }
