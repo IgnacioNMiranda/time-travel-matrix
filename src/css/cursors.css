@@ -1,0 +1,10 @@
+.epoch-cursor {
+  cursor:
+    url('/svgs/epoch.svg') 55 35,
+    auto;
+}
+
+.hand-cursor {
+  cursor: url('/svgs/hand.svg'), auto;
+  overflow: hidden;
+}

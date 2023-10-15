@@ -1,0 +1,7 @@
+@import url('./tailwind.css');
+@import url('./fonts.css');
+@import url('./cursors.css');
+
+/* Components */
+@import url('./components/destiny-button.css');
+@import url('./components/travel-button.css');

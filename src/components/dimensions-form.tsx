@@ -38,12 +38,17 @@ export const DimensionsForm = () => {
 
   return (
     <form
-      className="bg-[#F5BB86] w-auto md:w-108 px-4 md:pl-4 md:pr-0 pb-3 pt-1 md:py-3 rounded-md flex flex-col md:flex-row items-center justify-center"
+      style={{
+        backgroundImage: `url('/images/text-box/text-box-1.png')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%',
+      }}
+      className="w-auto md:w-108 px-4 md:pl-4 md:pr-0 py-3 md:py-6 rounded-md flex flex-col md:flex-row items-center justify-center"
       onSubmit={onSubmit}
     >
-      <section className="flex flex-col gap-2 w-full md:w-auto">
+      <section className="flex flex-col gap-2 w-full md:w-auto items-center">
         <div className="flex gap-2 justify-between items-center">
-          <p className="text-[#265D5C] font-semibold text-sm md:text-xl">Input matrix dimensions:</p>
+          <p className="text-white font-semibold text-lg md:text-xl">Input matrix dimensions:</p>
 
           <div className="flex gap-2">
             <input type="number" className="w-12 md:w-16 h-7 text-xl p-1" name="rows" required max={10} />
@@ -51,9 +56,13 @@ export const DimensionsForm = () => {
           </div>
         </div>
 
-        {inputError && <span className="text-red-500 font-bold text-center">Please input valid dimensions!</span>}
+        {inputError && (
+          <span className="text-[#F27306] font-bold text-center text-xl mt-4 tracking-widest">
+            Please input valid dimensions!
+          </span>
+        )}
 
-        <button className="w-full rounded px-4 py-2 bg-[#A6002B] hover:bg-[#450000] focus:bg-[#F27306] transition-colors text-white font-medium text-sm md:text-xl">
+        <button className="hand-cursor travel-button w-fit rounded text-white font-medium text-lg md:text-xl md:mt-4 tracking-widest">
           Travel through time!
         </button>
       </section>

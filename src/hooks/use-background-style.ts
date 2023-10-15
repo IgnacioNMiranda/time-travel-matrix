@@ -20,7 +20,6 @@ export const useBackgroundStyle = () => {
 
   return {
     backgroundImage: `url('/images/backgrounds/${backgroundIndex}.png')`,
-    imageRendering: 'pixelated',
     transition: 'background-image 5s ease-in-out',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

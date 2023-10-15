@@ -1,0 +1,9 @@
+.destiny-button {
+  background-repeat: 'no-repeat';
+  background-size: 100% 100%;
+  background-image: url('/images/text-box/text-box-1.png');
+}
+
+.destiny-button:hover {
+  background-image: url('/images/text-box/text-box-2.png');
+}

@@ -1,6 +1,6 @@
 import { useSpareMatrixOperations, useSpareMatrixStore } from '../state/spare-matrix'
 
-export const SparseMatrixGame = () => {
+export const Board = () => {
   const { rows, columns } = useSpareMatrixStore()
   const { getNode, addNode } = useSpareMatrixOperations()
 
@@ -14,7 +14,7 @@ export const SparseMatrixGame = () => {
 
               return (
                 <button
-                  className="p-4 rounded-md bg-[#F5BB86] hover:bg-[#F27306] epoch-cursor transition-colors w-10 h-10 md:w-16 md:h-16 disabled:bg-gray-200 disabled:cursor-default"
+                  className="destiny-button p-4 rounded-md epoch-cursor w-10 h-10 md:w-16 md:h-16 disabled:bg-opacity-100 disabled:cursor-default text-white"
                   key={`row-${rowIdx}:col-${colIdx}`}
                   onClick={() => addNode(rowIdx, colIdx)}
                   disabled={!!node}
