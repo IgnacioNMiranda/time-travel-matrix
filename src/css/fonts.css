@@ -1,13 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.epoch-cursor {
-  cursor:
-    url('/epoch.svg') 55 35,
-    auto;
-}
-
 @font-face {
   font-family: 'ChronoType';
   font-style: normal;

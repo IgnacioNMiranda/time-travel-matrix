@@ -1,33 +1,27 @@
-import { useMemo } from 'react'
 import { AudioManager } from './components/audio-manager'
 import { useSpareMatrixStore } from './state/spare-matrix'
 import { DimensionsForm } from './components/dimensions-form'
 import { SparseMatrixGame } from './components/sparse-matrix-game'
-import './styles.css'
 import { TextBox } from './components/text-box'
+import { useBackgroundStyle } from './hooks/use-background-style'
+
+import './css/tailwind.css'
+import './css/cursor.css'
+import './css/fonts.css'
 
 function App() {
-  const { rows, columns } = useSpareMatrixStore()
-
-  const isSetup = useMemo(() => !!rows && !!columns, [rows, columns])
+  const { isInit } = useSpareMatrixStore()
+  const backgroundStyle = useBackgroundStyle()
 
   return (
-    <main
-      className="h-screen grid place-items-center px-4 relative chrono-font"
-      style={{
-        background: `url('/background-image.webp')`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }}
-    >
-      {!isSetup && <DimensionsForm />}
+    <main className="h-screen grid place-items-center px-4 relative chrono-font" style={backgroundStyle}>
+      {!isInit && <DimensionsForm />}
 
-      {isSetup && <SparseMatrixGame />}
+      {isInit && <SparseMatrixGame />}
 
-      {isSetup && <TextBox />}
+      {isInit && <TextBox />}
 
-      <AudioManager play={isSetup} />
+      <AudioManager play={isInit} />
     </main>
   )
 }

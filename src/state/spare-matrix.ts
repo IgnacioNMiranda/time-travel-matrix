@@ -4,6 +4,7 @@ import { matrix, Matrix } from 'mathjs'
 interface SpareMatrixState {
   rows?: number
   columns?: number
+  isInit: boolean
   sparseMatrix: Matrix
   initMatrix: (rows: number, columns: number) => void
   updateMatrix: (matrix: Matrix) => void
@@ -11,6 +12,7 @@ interface SpareMatrixState {
 
 export const useSpareMatrixStore = create<SpareMatrixState>((set) => ({
   sparseMatrix: matrix('sparse'),
+  isInit: false,
   initMatrix: (rows: number, columns: number) =>
     set((state) => {
       const colValue = columns > 10 ? 10 : columns
@@ -18,7 +20,7 @@ export const useSpareMatrixStore = create<SpareMatrixState>((set) => ({
 
       const sparseMatrix = state.sparseMatrix.resize([rowValue, colValue])
 
-      return { rows: rowValue, columns: colValue, sparseMatrix }
+      return { rows: rowValue, columns: colValue, sparseMatrix, isInit: true }
     }),
   updateMatrix: (matrix: Matrix) => set(() => ({ sparseMatrix: matrix })),
 }))

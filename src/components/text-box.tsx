@@ -17,7 +17,7 @@ export const TextBox = () => {
     <section
       className="absolute left-0 bottom-0 mb-12 ml-12 w-108 h-40 flex flex-col justify-end items-end px-5 py-6 text-white uppercase"
       style={{
-        background: `url('/background-text-box.png')`,
+        background: `url('/images/text-box.png')`,
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
